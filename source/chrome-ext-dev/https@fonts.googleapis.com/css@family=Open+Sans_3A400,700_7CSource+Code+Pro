@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(../https@fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(../https@fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Code Pro'), local('SourceCodePro-Regular'), url(../https@fonts.gstatic.com/s/sourcecodepro/v6/mrl8jkM18OlOQN8JLgasDxM0YzuT7MdOe03otPbuUS0.woff) format('woff');
+}

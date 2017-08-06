@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="icon/demo.css">
+    <link rel="stylesheet" href="icon/iconfont.css">
+    <link rel="stylesheet" href="animate.css">
+	<link rel="stylesheet" href="app.css">
+	<script src="app.bundle.js"></script>
+</head>
+<body>
+	<div id="load-wrap">
+		<div class="loading">
+			<div class="loading-title">
+				<i class="icon iconfont icon-atm"></i><i class="title">seaseeYoul</i>
+			</div>
+			<div class="load-range"><span class="range" id="load-range"></span></div>
+		</div>
+	</div>
+	<div id="app">
+		<!--头部工具菜单-->
+		<div class="tool-bar top-position border-bottom">
+			<div class="tool-bar-left">
+				<span class="button-group">
+					<button class="button"><i class="icon iconfont icon-atm"></i></button>
+				</span>
+				<span class="button-group">
+					<button class="button"><i class="icon iconfont icon-rfq"></i></button>
+					<button class="button active"><i class="icon iconfont icon-history"></i></button>
+				</span>
+				<span class="button-group">
+					<button class="button"><i class="icon iconfont icon-download"></i></button>
+					<button class="button"><i class="icon iconfont icon-upload"></i></button>
+				</span>
+				<span class="button-group">
+					<button class="button"><i class="icon iconfont icon-icon-revoke"></i></button>
+					<button class="button"><i class="icon iconfont icon-skip"></i></button>
+				</span>
+			</div>
+			<div class="tool-bar-center">
+				<p class="image-info">
+					<span class="info-item">580px * 620px</span>
+					<span class="info-item">0.28Mkb</span>
+					<span class="info-item">100%</span>
+				</p>
+				<p class="image-info">LaiZiShenYuan-LeiGe.png</p>
+			</div>
+			<div class="tool-bar-right">
+				<span class="button-group">
+					<button class="button" title="一比一"><i class="icon iconfont icon-yibiyi1"></i></button>
+					<button class="button"><i class="icon iconfont icon-focus"></i></button>
+				</span>
+				<span class="button-group">
+					<button class="button"><i class="icon iconfont icon-ab"></i></button>
+					<button class="button"><i class="icon iconfont icon-originalimage"></i></button>
+				</span>
+				<span class="button-group">
+					<button class="button"><i class="icon iconfont icon-cut"></i></button>
+					<button class="button"><i class="icon iconfont icon-fill22"></i></button>
+					<button class="button"><i class="icon iconfont icon-light"></i></button>
+					<button class="button"><i class="icon iconfont icon-Dashboard"></i></button>
+				</span>
+				<span class="button-group">
+					<button class="button"><i class="icon iconfont icon-question"></i></button>
+				</span>
+			</div>
+		</div>
+		<!--左侧工具面板-->
+		<div class="tool-box-panel left-position fadeInLeft animated">
+			<div class="tool-box-panel-container border-right">
+				<div id="filter-panel" class="panel-container">
+					<div class="panel-title">
+						<span class="title-text">滤镜分类：</span>
+						<span class="title-action">
+							<button class="action-button">用户常用</button>
+							<div class="filter-classify animated zoomIn" id="filter-classify">
+								<a href="#" class="classify-item active">用户常用</a>
+								<a href="#" class="classify-item">现代</a>
+								<a href="#" class="classify-item">艺术</a>
+								<a href="#" class="classify-item">胶片</a>
+								<a href="#" class="classify-item">怀旧电影</a>
+								<a href="#" class="classify-item">经典电影</a>
+								<a href="#" class="classify-item">曲线</a>
+								<a href="#" class="classify-item">冒险</a>
+								<a href="#" class="classify-item">活力</a>
+							</div>
+						</span>
+					</div>
+					<div class="filter-main">
+						<ul class="filter-list">
+							<li class="list-item">
+								<div class="filter-item active">
+									<div class="filter-item-title">高调黑白</div>
+									<div class="filter-item-main">
+										<img src="./img.jpg" alt="">
+									</div>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="filter-item">
+									<div class="filter-item-title">秋天色调</div>
+									<div class="filter-item-main">
+										<img src="./img.jpg" alt="">
+									</div>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="filter-item">
+									<div class="filter-item-title">黑白高对比</div>
+									<div class="filter-item-main">
+										<img src="./img.jpg" alt="">
+									</div>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="filter-item">
+									<div class="filter-item-title">轻盈质感</div>
+									<div class="filter-item-main">
+										<img src="./img.jpg" alt="">
+									</div>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="filter-item">
+									<div class="filter-item-title">清新暖色</div>
+									<div class="filter-item-main">
+										<img src="./img.jpg" alt="">
+									</div>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="filter-item">
+									<div class="filter-item-title">LOMO</div>
+									<div class="filter-item-main">
+										<img src="./img.jpg" alt="">
+									</div>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="filter-item">
+									<div class="filter-item-title">低调</div>
+									<div class="filter-item-main">
+										<img src="./img.jpg" alt="">
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="history" class="panel-container">
+					<div class="history-head">
+						<button class="action-button">还原到原始</button>
+					</div>
+					<div class="history-body">
+						<ul class="history-list">
+							<li class="list-item turnback">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item turnback">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item turnback">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item turnback">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="history-list-item">
+									<span class="title">曲线RGB</span>
+									<span class="tips">RGB(255,255,255)</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="history-foot">
+						<button class="action-button">清除历史记录</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--右侧工具面板-->
+		<div class="tool-box-panel right-position" style="display: none">
+			<div class="tool-box-panel-container border-left">
+				1
+			</div>
+		</div>
+		<!--中部-->
+		<div class="main">
+			<div class="override">
+				<img src="./img.jpg" alt="">		
+				<canvas>您的浏览器不支持。</canvas>
+			</div>
+		</div>
+		<!--底部工具面板-->
+		<div class="dock-panel bottom-position" style="display: none">
+			<div class="dock-panel-main">
+				<span class="dock-item active">
+					<img src="./img.jpg" alt="">
+				</span>
+			</div>
+		</div>
+	</div>
+
+<!--loading -->
+<script>
+var loadRange = document.querySelector("#load-range");
+var loadWrap = document.querySelector("#load-wrap");
+var maxWidth =  loadRange.parentNode.offsetWidth;
+var w = 0;
+var loadTimer = setInterval(function(){
+	
+	if(w < maxWidth){
+		loadRange.style.width = ++w + 'px';
+		return;
+	}
+	loadWrap.className = "animated fadeOut";
+	clearInterval(loadTimer);
+	setTimeout(function(){
+		loadWrap.remove();
+	},1000);
+
+},10)
+
+</script>
+
+</body>
+</html>

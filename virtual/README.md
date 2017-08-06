@@ -1,0 +1,1 @@
+- 加载界面，一开始只加载loading动画的css，等dom完全加载完成移除loading
