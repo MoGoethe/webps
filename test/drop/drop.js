@@ -118,7 +118,7 @@ PhotoShop.prototype.dragMove = function(dom) {
         if (!_dragStatus) return;
 
         var _endPos,nowLeft,nowTop,deviationX,deviationY,imageWidth,
-            imageHeight,clientWidth,clientHeight; 
+            imageHeight,clientWidth,clientHeight,realDeviationX,realDeviationY; 
 
         nowLeft = _dom.offsetLeft;    // now margin left
         nowTop = _dom.offsetTop;      // now margin top
@@ -127,12 +127,10 @@ PhotoShop.prototype.dragMove = function(dom) {
         deviationY = _endPos.y - _startPos.y;   // now cursor deviation y
         imageWidth = _dom.offsetWidth;      //image width    
         imageHeight = _dom.offsetHeight;    //image height
-        clientWidth = _this.clientWidth;
-        clientHeight = _this.clientHeight;
+        clientWidth = _this.clientWidth;    //client width
+        clientHeight = _this.clientHeight;  //client height
 
         //_dom.style.left = startCPos.left + deviationX + 'px';
-        
-
         //_dom.style.top = startCPos.top + deviationY + 'px';
 
         //console.log(nowLeft)
