@@ -382,6 +382,8 @@ body {
         transition: background-color .25s ease-in; }
         #history .history-body .history-list .list-item:hover {
           background-color: #333; }
+          #history .history-body .history-list .list-item:hover .history-list-item {
+            border-color: transparent; }
         #history .history-body .history-list .list-item.turnback .history-list-item .title {
           color: #666; }
         #history .history-body .history-list .list-item .history-list-item {

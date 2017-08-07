@@ -379,8 +379,6 @@ body{
 	}
 }
 
-
-
 #history{
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -406,6 +404,9 @@ body{
 				transition: background-color .25s ease-in;
 				&:hover{
 					background-color:#333;
+					.history-list-item{
+						border-color:transparent;
+					}
 				}
 				&.turnback .history-list-item .title{
 					color: #666;
