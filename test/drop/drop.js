@@ -130,22 +130,45 @@ PhotoShop.prototype.dragMove = function(dom) {
         clientWidth = _this.clientWidth;    //client width
         clientHeight = _this.clientHeight;  //client height
 
+/*
+1.
+  图片宽高小于容器宽度
+  图片始终居中，拖拽的上下左右偏移量不大于100px;
+  释放之后回到原始位置
+2.
+  图片宽小于容器宽度  高度大于容器宽度
+  图片左右始终居中，左右偏移量不大于100px
+  如果向上拖拽 那么图片底部距离容器底部的距离不大于100px；
+  释放之后左右位置不变，底部距离为0；
+  反之相同
+3.
+  图片高小于容器宽度 宽大于容器宽度
+  图片上下始终居中，上下偏移量不大于100px
+  如果向左拖拽 那么图片右侧距离容器右侧的距离不大于100px；
+  释放之后上下位置不变，图片右侧距离容器右侧为0；
+  反之相同
+4.
+  图片宽高均大于容器宽高
+  2，3相结合
+
+*/
+
         if(deviationX < 0){
           //  向左拖拽
           //判断宽度图片宽度是否大于容器宽度，如果不，则始终居中
           if(imageWidth <= clientWidth){
-            
             realPos.x = nowLeft;
-          
+          }else{
+            realPos.x = 
+          }
+          if(){
+
           }else{
 
-            
-
           }
+          //startCPos.left + deviationX
 
-          startCPos.left + deviationX
-
-        }else if{
+        }else{
           // 向右拖拽
 
         }
