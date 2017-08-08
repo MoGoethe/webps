@@ -117,21 +117,41 @@ PhotoShop.prototype.dragMove = function(dom) {
     _dom.onmousemove = function() {
         if (!_dragStatus) return;
 
-        var _endPos,nowLeft,nowTop,deviationX,deviationY,imageWidth,
+        var _endPos,nowLeft,nowTop,deviationX,deviationY,imageWidth,realPos,
             imageHeight,clientWidth,clientHeight,realDeviationX,realDeviationY; 
 
         nowLeft = _dom.offsetLeft;    // now margin left
         nowTop = _dom.offsetTop;      // now margin top
         _endPos = cursorPosition();   // now cursor position
-        deviationX = _endPos.x - _startPos.x;   // now cursor deviation x
-        deviationY = _endPos.y - _startPos.y;   // now cursor deviation y
+        deviationX = _endPos.x - _startPos.x;   // now cursor deviation x more than 0 right
+        deviationY = _endPos.y - _startPos.y;   // now cursor deviation y more than 0 down
         imageWidth = _dom.offsetWidth;      //image width    
         imageHeight = _dom.offsetHeight;    //image height
         clientWidth = _this.clientWidth;    //client width
         clientHeight = _this.clientHeight;  //client height
 
-        //_dom.style.left = startCPos.left + deviationX + 'px';
-        //_dom.style.top = startCPos.top + deviationY + 'px';
+        if(deviationX < 0){
+          //  向左拖拽
+          //判断宽度图片宽度是否大于容器宽度，如果不，则始终居中
+          if(imageWidth <= clientWidth){
+            
+            realPos.x = nowLeft;
+          
+          }else{
+
+            
+
+          }
+
+          startCPos.left + deviationX
+
+        }else if{
+          // 向右拖拽
+
+        }
+
+        _dom.style.left = startCPos.left + deviationX + 'px';
+        _dom.style.top = startCPos.top + deviationY + 'px';
 
         //console.log(nowLeft)
         //计算出真实位置使用缓动动画调整位置，提供两个参数，dom；position
