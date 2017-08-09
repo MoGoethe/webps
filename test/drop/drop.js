@@ -100,6 +100,7 @@ PhotoShop.prototype.dragMove = function(dom) {
     var _this = this,
         _dom = dom,
         _startPos,
+        realPos = {left:0,top:0},
         startCPos,
         _dragStatus = false;
 
@@ -117,7 +118,7 @@ PhotoShop.prototype.dragMove = function(dom) {
     _dom.onmousemove = function() {
         if (!_dragStatus) return;
 
-        var _endPos,nowLeft,nowTop,deviationX,deviationY,imageWidth,realPos,
+        var _endPos,nowLeft,nowTop,deviationX,deviationY,imageWidth,
             imageHeight,clientWidth,clientHeight,realDeviationX,realDeviationY; 
 
         nowLeft = _dom.offsetLeft;    // now margin left
@@ -153,25 +154,24 @@ PhotoShop.prototype.dragMove = function(dom) {
 
 */
 
-        if(deviationX < 0){
-          //  向左拖拽
-          //判断宽度图片宽度是否大于容器宽度，如果不，则始终居中
-          if(imageWidth <= clientWidth){
-            realPos.x = nowLeft;
-          }else{
-            realPos.x = 
-          }
-          if(){
+        //判断宽度图片宽度是否大于容器宽度，如果不，则始终居中
+        if(imageWidth <= clientWidth && imageHeight <= clientHeight){
+          realPos.left = (clientWidth - imageWidth) / 2;
+          realPos.top = (clientHeight - imageHeight) / 2;
 
-          }else{
 
-          }
-          //startCPos.left + deviationX
+        }else if(imageWidth <= clientWidth && imageHeight > clientHeight){
+          //realPos.x = nowLeft;
+          //判断Y轴位移方向，判断偏移量 以及边界
+          console.log("a");
+        }else if(imageWidth > clientWidth && imageHeight <= clientHeight){
+          console.log("b");
 
-        }else{
-          // 向右拖拽
+        }else if(imageWidth > clientWidth && imageHeight > clientHeight){
+          console.log("c");
 
         }
+        console.log(deviationX,deviationY);
 
         _dom.style.left = startCPos.left + deviationX + 'px';
         _dom.style.top = startCPos.top + deviationY + 'px';
@@ -179,11 +179,13 @@ PhotoShop.prototype.dragMove = function(dom) {
         //console.log(nowLeft)
         //计算出真实位置使用缓动动画调整位置，提供两个参数，dom；position
 
-        //_this.Animate(_dom,realPos)
+        
     }
 
     _dom.onmouseup = function() {
+      if(_dragStatus) _this.Animate(_dom,realPos); 
         _dragStatus = false;
+        
     }
     var cursorPosition = function() {
         var ev = ev || window.event;
@@ -195,9 +197,6 @@ PhotoShop.prototype.dragMove = function(dom) {
             y: ev.clientY + document.body.scrollTop - document.body.clientTop
         };
     };
-    var slowDownMove = function(d, p) {
-
-    }
 };
 
 PhotoShop.prototype.Animate = function(element, position, speed, callback) { 
