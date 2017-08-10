@@ -1,7 +1,3 @@
-window.onload = function() {
-    console.log("start");
-}
-
 /*
       插件将实现以下功能，
       1. 打开本地文件，并将文件输出到canvas标签上
@@ -9,6 +5,7 @@ window.onload = function() {
       3. 设置rgb曲线
       4. 设置色相
       5. 设置亮度
+      6. 设置各种滤镜
 */
 
 var PhotoShop = function(opt) {
@@ -130,7 +127,7 @@ PhotoShop.prototype.dragMove = function(dom) {
         clientWidth = _this.clientWidth;    //client width
         clientHeight = _this.clientHeight;  //client height
 
-        //_dom.style.left = startCPos.left + deviationX + 'px';
+        _dom.style.left = startCPos.left + deviationX + 'px';
         //_dom.style.top = startCPos.top + deviationY + 'px';
 
         //console.log(nowLeft)
