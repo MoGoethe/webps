@@ -1,7 +1,7 @@
 /*
       插件将实现以下功能，
       1. 打开本地文件，并将文件输出到canvas标签上
-      2. 在一定范围内拖动
+      2. 在一定范围内拖动，自动调整位置
       3. 设置rgb曲线
       4. 设置色相
       5. 设置亮度
@@ -97,7 +97,7 @@ PhotoShop.prototype.dragMove = function(dom) {
     var _this = this,
         _dom = dom,
         _startPos,
-        realPos = {left:0,top:0},
+        realPos = { left: 0, top: 0 },
         startCPos,
         _dragStatus = false;
 
@@ -115,59 +115,59 @@ PhotoShop.prototype.dragMove = function(dom) {
     _dom.onmousemove = function() {
         if (!_dragStatus) return;
 
-        var _endPos,nowLeft,nowTop,deviationX,deviationY,imageWidth,
-            imageHeight,clientWidth,clientHeight,realDeviationX,realDeviationY; 
+        var _endPos, nowLeft, nowTop, deviationX, deviationY, imageWidth,
+            imageHeight, clientWidth, clientHeight, realDeviationX, realDeviationY;
 
-        nowLeft = _dom.offsetLeft;    // now margin left
-        nowTop = _dom.offsetTop;      // now margin top
-        _endPos = cursorPosition();   // now cursor position
-        deviationX = _endPos.x - _startPos.x;   // now cursor deviation x more than 0 right
-        deviationY = _endPos.y - _startPos.y;   // now cursor deviation y more than 0 down
-        imageWidth = _dom.offsetWidth;      //image width    
-        imageHeight = _dom.offsetHeight;    //image height
-        clientWidth = _this.clientWidth;    //client width
-        clientHeight = _this.clientHeight;  //client height
-/*
-1.
-  图片宽高小于容器宽度
-  图片始终居中，拖拽的上下左右偏移量不大于100px;
-  释放之后回到原始位置
-2.
-  图片宽小于容器宽度  高度大于容器宽度
-  图片左右始终居中，左右偏移量不大于100px
-  如果向上拖拽 那么图片底部距离容器底部的距离不大于100px；
-  释放之后左右位置不变，底部距离为0；
-  反之相同
-3.
-  图片高小于容器宽度 宽大于容器宽度
-  图片上下始终居中，上下偏移量不大于100px
-  如果向左拖拽 那么图片右侧距离容器右侧的距离不大于100px；
-  释放之后上下位置不变，图片右侧距离容器右侧为0；
-  反之相同
-4.
-  图片宽高均大于容器宽高
-  2，3相结合
+        nowLeft = _dom.offsetLeft; // now margin left
+        nowTop = _dom.offsetTop; // now margin top
+        _endPos = cursorPosition(); // now cursor position
+        deviationX = _endPos.x - _startPos.x; // now cursor deviation x more than 0 right
+        deviationY = _endPos.y - _startPos.y; // now cursor deviation y more than 0 down
+        imageWidth = _dom.offsetWidth; //image width    
+        imageHeight = _dom.offsetHeight; //image height
+        clientWidth = _this.clientWidth; //client width
+        clientHeight = _this.clientHeight; //client height
+        /*
+        1.
+          图片宽高小于容器宽度
+          图片始终居中，拖拽的上下左右偏移量不大于100px;
+          释放之后回到原始位置
+        2.
+          图片宽小于容器宽度  高度大于容器宽度
+          图片左右始终居中，左右偏移量不大于100px
+          如果向上拖拽 那么图片底部距离容器底部的距离不大于100px；
+          释放之后左右位置不变，底部距离为0；
+          反之相同
+        3.
+          图片高小于容器宽度 宽大于容器宽度
+          图片上下始终居中，上下偏移量不大于100px
+          如果向左拖拽 那么图片右侧距离容器右侧的距离不大于100px；
+          释放之后上下位置不变，图片右侧距离容器右侧为0；
+          反之相同
+        4.
+          图片宽高均大于容器宽高
+          2，3相结合
 
-*/
+        */
 
         //判断宽度图片宽度是否大于容器宽度，如果不，则始终居中
-        if(imageWidth <= clientWidth && imageHeight <= clientHeight){
-          realPos.left = (clientWidth - imageWidth) / 2;
-          realPos.top = (clientHeight - imageHeight) / 2;
+        if (imageWidth <= clientWidth && imageHeight <= clientHeight) {
+            realPos.left = (clientWidth - imageWidth) / 2;
+            realPos.top = (clientHeight - imageHeight) / 2;
 
 
-        }else if(imageWidth <= clientWidth && imageHeight > clientHeight){
-          //realPos.x = nowLeft;
-          //判断Y轴位移方向，判断偏移量 以及边界
-          console.log("a");
-        }else if(imageWidth > clientWidth && imageHeight <= clientHeight){
-          console.log("b");
+        } else if (imageWidth <= clientWidth && imageHeight > clientHeight) {
+            //realPos.x = nowLeft;
+            //判断Y轴位移方向，判断偏移量 以及边界
+            console.log("a");
+        } else if (imageWidth > clientWidth && imageHeight <= clientHeight) {
+            console.log("b");
 
-        }else if(imageWidth > clientWidth && imageHeight > clientHeight){
-          console.log("c");
+        } else if (imageWidth > clientWidth && imageHeight > clientHeight) {
+            console.log("c");
 
         }
-        console.log(deviationX,deviationY);
+        console.log(deviationX, deviationY);
 
         _dom.style.left = startCPos.left + deviationX + 'px';
         _dom.style.top = startCPos.top + deviationY + 'px';
@@ -175,13 +175,14 @@ PhotoShop.prototype.dragMove = function(dom) {
         //console.log(nowLeft)
         //计算出真实位置使用缓动动画调整位置，提供两个参数，dom；position
 
-        
+
     }
 
     _dom.onmouseup = function() {
-      if(_dragStatus) _this.Animate(_dom,realPos); 
+        //  if(_dragStatus) _this.Animate(_dom,realPos); 
+        _dom.style
         _dragStatus = false;
-        
+
     }
     var cursorPosition = function() {
         var ev = ev || window.event;
@@ -195,7 +196,8 @@ PhotoShop.prototype.dragMove = function(dom) {
     };
 };
 
-PhotoShop.prototype.Animate = function(element, position, speed, callback) { 
+
+PhotoShop.prototype.Animate = function(element, position, speed, callback) {
     //移动到指定位置，position:移动到指定left及top 格式{left:120, top:340}或{left:120}或{top:340}；speed:速度 1-100，默认为10
     if (typeof(element) == 'string') element = document.getElementById(element);
     if (!element.effect) {

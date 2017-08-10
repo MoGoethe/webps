@@ -19,13 +19,9 @@
             left: 0;
             top: 0;
       }
-      .imageBox{
+      #canvas{
             position: absolute;
-            display: block;
-            width: auto;
-            height: auto;
             cursor: -webkit-grab;
-            border: 1px solid #108ee9;
       }
       #action{
             position: absolute;
@@ -42,25 +38,36 @@
 </head>
 
 <body>
-<div class="container">
-      <div class="imageBox">
+<div class="container" id="canvasContainer">
+      <!-- <div class="imageBox">
             <canvas id="canvas"></canvas>
-      </div>
+      </div> -->
+      <canvas id="canvas"></canvas>
 </div>
 <div id="action">
       <input type="file" id="__uploadfile" />
 </div>
-<script type="text/javascript" src="./drop.js"></script>
+<script type="text/javascript" src="./drop_v2.js"></script>
 <script>
 	
 var upLoadButton = document.querySelector("#__uploadfile"),
       canvas = document.querySelector("#canvas"),
+      canvasContainer = document.querySelector("#canvasContainer"),
       proxyUpLoadButton = document.querySelector("#uploadfile"),
       options = {
             upLoadButton : upLoadButton,
             proxyUpLoadButton : proxyUpLoadButton,
-            canvas:canvas
+            canvas:canvas,
+            container:canvasContainer
       };
+
+/*
+      需要配置的参数：
+      uploadButton : 触发上传文件事件的dom
+      proxyUpLoadButton:代理上传文件的dom
+      canvas : 绘制canvas的标签
+      container: 装canvas的dom
+*/    
 
 var ps = new PhotoShop(options);
 
