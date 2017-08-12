@@ -22,6 +22,7 @@
       #canvas{
             position: absolute;
             cursor: -webkit-grab;
+            border:1px solid red;
       }
       #action{
             position: absolute;
@@ -70,6 +71,17 @@ var upLoadButton = document.querySelector("#__uploadfile"),
 */    
 
 var ps = new PhotoShop(options);
+
+console.log(ps);
+
+ps.setRGBData("255,255,255,.3");
+
+
+//给页面绑定滑轮滚动事件  
+
+
+
+
 
 </script>
 </body>
