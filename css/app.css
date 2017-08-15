@@ -4,7 +4,18 @@ html, body, #app {
   overflow: hidden; }
 
 body {
-  background-color: rgba(40, 40, 40, 0.9); }
+  background-color: rgba(40, 40, 40, 0.9);
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently*/ }
 
 .border-right {
   border-right: 1px solid #000; }
@@ -150,7 +161,7 @@ body {
   transition: background-color .25s ease;
   font-weight: 100;
   font-size: 14px;
-  text-align: center; }
+  position: relative; }
   .button:hover {
     background-color: rgba(255, 255, 255, 0.5); }
   .button.active {
@@ -158,39 +169,43 @@ body {
   .button .icon {
     font-size: 19px; }
 
+#__uploadfile {
+  position: absolute;
+  opacity: 0;
+  width: 32px;
+  height: 32px;
+  display: block;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  overflow: hidden; }
+
 .main {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  overflow: hidden;
   position: absolute;
   left: 0;
   top: 0;
   z-index: 0;
-  cursor: -webkit-grab;
+  padding: 51px 201px;
   cursor: -moz-grab;
   background-color: rgba(40, 40, 40, 0.9); }
-  .main .override {
-    width: auto;
-    height: auto;
-    min-height: 100%;
-    min-width: 100%;
-    left: 0;
-    top: 0;
+  .main #overview {
+    width: 100%;
+    height: 100%;
+    position: relative; }
+  .main #canvas {
     position: absolute;
-    text-align: center; }
-    .main .override img {
-      display: block;
-      width: 100%;
-      left: 0;
-      position: absolute;
-      top: 0; }
+    cursor: -webkit-grab;
+    z-index: -1; }
 
 #filter-panel {
   padding-top: 10px;
-  display: none; }
+  display: block; }
   #filter-panel .panel-title {
     margin: 0 10px;
     width: 180px;
@@ -358,6 +373,7 @@ body {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
+  display: none;
   -moz-flex-direction: column;
   -ms-flex-direction: column;
       flex-direction: column;

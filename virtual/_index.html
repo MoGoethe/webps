@@ -30,8 +30,13 @@
 					<button class="button active"><i class="icon iconfont icon-history"></i></button>
 				</span>
 				<span class="button-group">
-					<button class="button"><i class="icon iconfont icon-download"></i></button>
-					<button class="button"><i class="icon iconfont icon-upload"></i></button>
+					<button class="button" id="uploadfile"><i class="icon iconfont icon-download"></i>
+						<input type="file" id="__uploadfile">
+						<div class="button-title">导入照片</div>
+					</button>
+					<button class="button"><i class="icon iconfont icon-upload"></i>
+						<div class="button-title">导入照片照片</div>
+					</button>
 				</span>
 				<span class="button-group">
 					<button class="button"><i class="icon iconfont icon-icon-revoke"></i></button>
@@ -271,16 +276,15 @@
 			</div>
 		</div>
 		<!--右侧工具面板-->
-		<div class="tool-box-panel right-position" style="display: none">
+		<div class="tool-box-panel right-position">
 			<div class="tool-box-panel-container border-left">
-				1
+				
 			</div>
 		</div>
 		<!--中部-->
 		<div class="main">
-			<div class="override">
-				<img src="./img.jpg" alt="">		
-				<canvas>您的浏览器不支持。</canvas>
+			<div id="overview">
+				<canvas id="canvas">您的浏览器不支持。</canvas>
 			</div>
 		</div>
 		<!--底部工具面板-->
@@ -294,6 +298,7 @@
 	</div>
 
 <!--loading -->
+<script src="ps.js"></script>
 <script>
 var loadRange = document.querySelector("#load-range");
 var loadWrap = document.querySelector("#load-wrap");
@@ -311,7 +316,22 @@ var loadTimer = setInterval(function(){
 		loadWrap.remove();
 	},1000);
 
-},10)
+},1);
+
+var upLoadButton = document.querySelector("#__uploadfile"),
+      canvas = document.querySelector("#canvas"),
+      canvasContainer = document.querySelector("#overview"),
+      proxyUpLoadButton = document.querySelector("#uploadfile"),
+      options = {
+            upLoadButton : upLoadButton,
+            proxyUpLoadButton : proxyUpLoadButton,
+            canvas:canvas,
+            container:canvasContainer
+      };
+
+var ps = new PhotoShop(options);
+console.log(ps);
+ps.setRGBData("255,255,255,.3");
 
 </script>
 
