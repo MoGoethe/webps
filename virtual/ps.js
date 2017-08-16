@@ -415,6 +415,20 @@
 
         setRGBData: function(rgb) {
             console.log(rgb);
+        },
+
+        setFilter:function(name,obj){
+            var _this = this;
+
+            switch(name){
+                case "blurImage" : console.log("a");
+                    return;
+                case "2" : console.log("aaaa");
+
+            }
+
+
+
         }
 
     }

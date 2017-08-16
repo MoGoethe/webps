@@ -280,39 +280,70 @@
         },
 
         scrollFun : function (dom,eu,ed){
-            var _this = this;
+            var _this = this,
+                originalImage = _this.__img,
+                originalWidth = _this.canvas.offsetWidth,
+                originalHeight = _this.canvas.offsetHeight,
+                ctx = _this.ctx;
+
+            var _obj = {
+                self : _this,
+                originalImage : originalImage,
+                originalHeight : originalHeight,
+                originalWidth : originalWidth,
+                ctx : ctx
+            }
+
             var __scrollFun = function (e) {  
                 e = e || window.event;  
                 if (e.wheelDelta) {              
                     if (e.wheelDelta > 0) {
-                        eu.call(dom,arguments);
+                        eu.call(dom,_obj);
                     }
                     if (e.wheelDelta < 0) {
-                        ed.call(dom,arguments);
+                        ed.call(dom,_obj);
                     }
                 } else if (e.detail) {
                     if (e.detail> 0) {
-                        eu.call(dom,arguments);
+                        eu.call(dom,_obj);
                     }
                     if (e.detail< 0) {
-                        ed.call(dom,arguments);
+                        ed.call(dom,_obj);
                     }
                 }
+                _this.setCanvasPosition();
             }
             if (document.addEventListener) {
                 dom.addEventListener('DOMMouseScroll', __scrollFun, false);  
             }
             dom.onmousewheel = __scrollFun;
-            _this.setCanvasPosition();
+            
         },
 
-        _narrow : function(){
-            var self = this;
-            console.log(this);
+        _narrow : function(obj){
+            var self = this,
+                that = obj.self,
+                ctx = obj.ctx,
+                originalHeight = obj.originalHeight,
+                originalWidth = obj.originalWidth,
+                originalImage =obj.originalImage,
+                maxHeight = originalHeight * 3,
+                maxWidth = originalWidth * 3,
+
+                _cwidth = originalWidth * 1.2;
+                _cheight = originalHeight * 1.2;
+
+            this.width = _cwidth;
+            this.height = _cheight;
+            this.style.width = _cwidth + 'px';
+            this.style.height = _cheight + 'px';
+
+            ctx.drawImage(originalImage, 0, 0,_cwidth,_cheight);
+
         },
-        _enlarge : function(){
+        _enlarge : function(obj){
             var self = this;
-            console.log(this);
+            
         },
 
         setRGBData: function(rgb) {
